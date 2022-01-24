@@ -483,22 +483,23 @@ export function initResizeHandle(
     setResizing(true)
     idx0 = handleType[0]
     idx1 = handleType[1]
-    if (aspectRatio.value) {
-      if (['tl', 'tm', 'ml', 'bl'].includes(handleType)) {
-        idx0 = 't'
-        idx1 = 'l'
-      } else {
-        idx0 = 'b'
-        idx1 = 'r'
-      }
-    }
+    // https://github.com/a7650/vue3-draggable-resizable/issues/43
+    // if (aspectRatio.value) {
+    //   if (['tl', 'tm', 'ml', 'bl'].includes(handleType)) {
+    //     idx0 = 't'
+    //     idx1 = 'l'
+    //   } else {
+    //     idx0 = 'b'
+    //     idx1 = 'r'
+    //   }
+    // }
     let minHeight = props.minH as number
     let minWidth = props.minW as number
-    if (minHeight / minWidth > aspectRatio.value) {
-      minWidth = minHeight / aspectRatio.value
-    } else {
-      minHeight = minWidth * aspectRatio.value
-    }
+    // if (minHeight / minWidth > aspectRatio.value) {
+    //   minWidth = minHeight / aspectRatio.value
+    // } else {
+    //   minHeight = minWidth * aspectRatio.value
+    // }
     setResizingMinWidth(minWidth)
     setResizingMinHeight(minHeight)
     if (parent) {
