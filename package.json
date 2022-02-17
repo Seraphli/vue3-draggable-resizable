@@ -1,5 +1,5 @@
 {
-  "name": "vue3-draggable-resizable",
+  "name": "@seraphli/vue3-draggable-resizable",
   "version": "1.6.1",
   "private": false,
   "description": "[Vue3 Component] 拖拽缩放并具有自动吸附对齐、参考线等功能",
@@ -28,7 +28,7 @@
     "eslint-plugin-vue": "^7.0.0-0",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
-    "typescript": "~3.9.3",
+    "typescript": "^4.3.5",
     "core-js": "^3.6.5",
     "vue": "^3.0.0"
   },
