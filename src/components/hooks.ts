@@ -285,7 +285,6 @@ export function initDraggableContainer(
   }
   const handleDrag = (e: MouseEvent) => {
     e.preventDefault()
-    if (!(dragging.value && containerRef.value)) return
     const [pageX, pageY] = getPosition(e)
     const deltaX = pageX - lstPageX
     const deltaY = pageY - lstPageY
@@ -340,10 +339,15 @@ export function initDraggableContainer(
       }
       containerProvider!.setMatchedLine(matchedLine as MatchedLine)
     }
-    emit('dragging', { x: setLeft(newLeft), y: setTop(newTop) })
+    if (!(dragging.value && draggable.value && containerRef.value)) {
+      emit('dragging', { x: deltaX, y: deltaY })
+    }
+    else {
+      emit('dragging', { x: setLeft(newLeft), y: setTop(newTop) })
+    }
   }
   const handleDown = (e: HandleEvent) => {
-    if (!draggable.value) return
+    // if (!draggable.value) return
     setDragging(true)
     lstX = x.value
     lstY = y.value
